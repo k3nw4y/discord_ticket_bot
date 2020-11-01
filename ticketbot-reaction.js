@@ -9,11 +9,11 @@
 const discord = require('discord.js');
 const client = new discord.Client();
 
-const config = require('./config.json');
+
 
 var userTickets = new Map();
 
-client.login(config.token);
+client.login(process.env.BOT_TOKEN);
 
 client.on('ready', () => {
     console.log(client.user.username + " has logged in.");
