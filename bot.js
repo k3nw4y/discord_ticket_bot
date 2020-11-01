@@ -56,7 +56,7 @@ client.on('message', message => {
  */
 client.on('raw', payload => {
     if(payload.t === 'MESSAGE_REACTION_ADD') { // Check if the event name is MESSAGE_REACTION_ADD
-        if(payload.d.emoji.name === 'ticketreact') // If the emoji is ticketreact
+        if(payload.d.emoji.name === 'white_check_mark') // If the emoji is ticketreact
         {
             if(payload.d.message_id === '625926893954400266') { // Here we check if the id of the message is the ID of the embed that we had the bot send using the ?sendmsg command.
                 let channel = client.channels.get(payload.d.channel_id) // Get the proper channel object.
@@ -76,7 +76,7 @@ client.on('raw', payload => {
         }
         // Check if the emoji is checkreact, meaning we're deleting the channel.
         // This will only be significant if our bot crashes/restarts and there are additional ticket channels that have not been closed.
-        else if(payload.d.emoji.name === 'checkreact') {
+        else if(payload.d.emoji.name === 'negative_squared_cross_mark') {
             let channel = client.channels.get(payload.d.channel_id);
             if(channel.messages.has(payload.d.message_id)) {
                 return;
